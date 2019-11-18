@@ -20,6 +20,7 @@ private:
     
 public:
     // TODO: Change these?
+    // Keeping them separate so that users can change it to rectangle
     static const int kHorizontalBlockLength = 44;
     static const int kVerticalBlockLength = 44;
     

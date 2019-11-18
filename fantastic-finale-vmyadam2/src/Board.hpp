@@ -13,11 +13,11 @@
 #endif /* Board_hpp */
 
 class Board {
-    static const int kHorizontalGridLength;
-    static const int kVerticalGridLength;
-    static vector<vector<Block>> current_grid_;
+    static const int kHorizontalBoardLength = 500;
+    static const int kVerticalBoardLength = 500;
+    static vector<vector<Block>> current_board_;
 
-    static void init(int horizontal_length, int vertical_length);
+    static void RefreshBoard(int width_size, int length_size);
     ~Board(); // TODO: How to do this one
     
     static void draw();

@@ -8,19 +8,19 @@
 #include "ofMain.h"
 #include "Block.hpp"
 
-int GetX() {
+int Block::GetX() {
     return x;
 }
 
-int GetY() {
+int Block::GetY() {
     return y;
 }
 
-void SetX(int set_x) {
+void Block::SetX(int set_x) {
     x = set_x;
 }
 
-void SetY(int set_y) {
+void Block::SetY(int set_y) {
     y = set_y;
 }
 
