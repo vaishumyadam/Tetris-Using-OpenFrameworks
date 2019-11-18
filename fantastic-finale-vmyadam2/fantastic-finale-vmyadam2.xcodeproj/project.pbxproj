@@ -11,6 +11,7 @@
 		243D9A3223820BD8007360E6 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 243D9A3023820BD8007360E6 /* Block.cpp */; };
 		243D9A352382125A007360E6 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 243D9A332382125A007360E6 /* Board.cpp */; };
 		243D9A38238212A4007360E6 /* Tetromino.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 243D9A36238212A4007360E6 /* Tetromino.cpp */; };
+		2469DE552382F44700018838 /* Pieces.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2469DE532382F44700018838 /* Pieces.cpp */; };
 		413B65A0F41D699F37AB4C06 /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 99B37C8367EB4811EEF8E78D /* ofxSliderGroup.cpp */; };
 		75E465AE7EDAD189B42B8D95 /* ofxInputField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0C357D495FA2C612DDB38FC2 /* ofxInputField.cpp */; };
 		81BE400C35825643551A3190 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73799D65360CD587DCAE90A0 /* ofxLabel.cpp */; };
@@ -45,6 +46,8 @@
 		243D9A342382125A007360E6 /* Board.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Board.hpp; sourceTree = "<group>"; };
 		243D9A36238212A4007360E6 /* Tetromino.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tetromino.cpp; sourceTree = "<group>"; };
 		243D9A37238212A4007360E6 /* Tetromino.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tetromino.hpp; sourceTree = "<group>"; };
+		2469DE532382F44700018838 /* Pieces.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pieces.cpp; sourceTree = "<group>"; };
+		2469DE542382F44700018838 /* Pieces.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pieces.hpp; sourceTree = "<group>"; };
 		27CE0445D02D803853EC74E8 /* ofxPanel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxPanel.cpp; path = ../../../../addons/ofxGui/src/ofxPanel.cpp; sourceTree = SOURCE_ROOT; };
 		44C0961009D36089EBA9C36F /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiGroup.h; path = ../../../../addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
 		481083C90D96C0AAA580E194 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxButton.h; path = ../../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
@@ -618,6 +621,8 @@
 				243D9A342382125A007360E6 /* Board.hpp */,
 				243D9A36238212A4007360E6 /* Tetromino.cpp */,
 				243D9A37238212A4007360E6 /* Tetromino.hpp */,
+				2469DE532382F44700018838 /* Pieces.cpp */,
+				2469DE542382F44700018838 /* Pieces.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -724,6 +729,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				106B9A6182DF98E835C09B47 /* ofxBaseGui.cpp in Sources */,
+				2469DE552382F44700018838 /* Pieces.cpp in Sources */,
 				243D9A38238212A4007360E6 /* Tetromino.cpp in Sources */,
 				A61B54CA66E926867C59D2C6 /* ofxButton.cpp in Sources */,
 				CA7E31A02CAF4836F8551ADD /* ofxColorPicker.cpp in Sources */,

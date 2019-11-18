@@ -13,15 +13,21 @@
 #endif /* Block_hpp */
 
 class Block {
-public:
+private:
     int x;
     int y;
     ofColor color;
     
+public:
     // TODO: Change these?
-    static const int kHorizontalLength = 44;
-    static const int kVerticalLength = 44;
+    static const int kHorizontalBlockLength = 44;
+    static const int kVerticalBlockLength = 44;
     
-    Block(ofColor color, ofPoint, point);
+    int GetX();
+    int GetY();
+    void SetX(int set_x);
+    void SetY(int set_y);
+    
+    Block(ofColor color, ofPoint point);
     void draw();
 };
