@@ -14,7 +14,7 @@
 11/19/19:
 - Researched on what kind of shapes are traditionally used in tetris: S-shape, Z-shape, T-shape, L-shape, Line-shape, Mirrored L-shape, and a Square-shape
 - Figured out what colors I am going make the background (pink) and each of the [pieces](https://colorswatches.info/shades-of-white).
-- Researched and downloaded what sounds I will be using for the external library part of the project: falling tetromino (fall.wav), losing end screen (gameover.wav), clearing a line at the bottom (line.wav), winning end screen (success.wav), moving the tetromino left or right (clear.wav), rotating the tetromino (selection.wav)
+- Researched and downloaded what sounds I will be using for the external library part of the project: falling tetromino (fall.wav), losing end screen (gameover.wav), clearing a line at the bottom (line.wav), winning end screen (success.wav), moving the tetromino left or right (slide.wav), rotating the tetromino (rotate.wav)
 
 11/21/19:
 - 
