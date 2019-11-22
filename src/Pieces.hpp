@@ -4,13 +4,11 @@
 //
 //  Created by Vaishnavi Myadam on 11/18/19.
 //
+
 #include "ofMain.h"
 #ifndef Pieces_hpp
 #define Pieces_hpp
-
-
 #include <stdio.h>
-
 
 class Pieces {
 private:

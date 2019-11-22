@@ -7,7 +7,9 @@
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp{
-
+    private:
+        ofSoundPlayer slide;
+        ofSoundPlayer rotate;
 	public:
 		void setup();
 		void update();

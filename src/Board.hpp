@@ -13,17 +13,15 @@
 #include "Tetromino.hpp"
 #include "Pieces.hpp"
 
-
 class Board {
-    ofColor background_color_ = ofColor::pink;
-    static const int kHorizontalBoardLength = 500;
-    static const int kVerticalBoardLength = 500;
+public:
+    static const int kBoardLength = 20;
     static vector<vector<Block>> current_board_;
 
-    static void RefreshBoard(int width_size, int length_size);
-    ~Board(); // TODO: How to do this one
-    static void draw();
+    static void init();
+    ~Board(); // TODO: Do I have to do this one?
     
+    static void draw();
     static void DeleteLine(int length_size, int width_size);
     bool IsLineFilled(int length_index, int width_size);
     void AllBlocksMoveDown(int length_index, int width_size);

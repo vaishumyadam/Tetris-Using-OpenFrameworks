@@ -7,7 +7,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofSetFrameRate(50);
+    ofSetBackgroundColor(ofColor::purple);
+    
+    slide.load("slide.wav");
+    slide.play();
+    
+    rotate.load("rotate.wav");
+    rotate.play();
 }
 
 //--------------------------------------------------------------

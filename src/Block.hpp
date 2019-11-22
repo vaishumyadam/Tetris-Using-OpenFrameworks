@@ -15,7 +15,7 @@ class Block {
 private:
     int x;
     int y;
-    ofColor color;
+    ofColor shade;
     
 public:
     // TODO: Change these?
