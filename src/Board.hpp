@@ -15,16 +15,15 @@
 
 class Board {
 public:
-    static const int kBoardLength = 20;
     static vector<vector<Block>> current_board_;
 
-    static void init();
-    ~Board(); // TODO: Do I have to do this one?
-    
+    Board() {};
+    static void init(int row_size, int col_size);
     static void draw();
+    
     static void DeleteLine(int length_size, int width_size);
-    bool IsLineFilled(int length_index, int width_size);
-    void AllBlocksMoveDown(int length_index, int width_size);
+    static bool IsLineFilled(int length_index, int width_size);
+    static void AllBlocksMoveDown(int length_index, int width_size);
 };
 
 #endif /* Board_hpp */

@@ -24,20 +24,29 @@ void Block::SetY(int set_y) {
     y = set_y;
 }
 
+ofColor Block::GetShade() {
+    return shade;
+}
+
+void Block::SetShade(ofColor set_shade) {
+    shade = set_shade;
+}
+
 //https://www.oreilly.com/library/view/mastering-openframeworks-creative/9781849518048/ch02s04.html
-Block::Block(ofColor c, ofPoint point) {
+Block::Block(ofPoint point, ofColor set_shade) {
     x = point.x;
     y = point.y;
-    shade = c;
+    shade = set_shade;
 }
 
 //https://openframework.cc/documentation/graphics/ofGraphics/#show_ofPushStyle
 void Block::draw() {
-    ofPushStyle();
+    ofPushStyle(); {
     
     ofFill();
     ofSetColor(shade);
-    ofRectangle(x, y, kHorizontalBlockLength, kVerticalBlockLength);
+    ofRectangle(x, y, kBlockWidth, kBlockHeight);
     
+    };
     ofPopStyle();
 }

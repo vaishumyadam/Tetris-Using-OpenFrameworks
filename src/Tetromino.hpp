@@ -16,7 +16,7 @@ using std::vector;
 
 class Tetromino {
 public:
-    vector<Block> current_tetromino_;
+    vector<Block> current_tetromino_; //name
     
     void draw();
     void SlideDown(vector<Block> tetromino);

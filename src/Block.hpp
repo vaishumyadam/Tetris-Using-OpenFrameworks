@@ -18,17 +18,17 @@ private:
     ofColor shade;
     
 public:
-    // TODO: Change these?
-    // Keeping them separate so that users can change it to rectangle
-    static const int kHorizontalBlockLength = 44;
-    static const int kVerticalBlockLength = 44;
+    static const int kBlockWidth = 25;
+    static const int kBlockHeight = 25;
     
     int GetX();
     int GetY();
     void SetX(int set_x);
     void SetY(int set_y);
+    ofColor GetShade();
+    void SetShade(ofColor set_shade);
     
-    Block(ofColor color, ofPoint point);
+    Block(ofPoint point, ofColor shade);
     void draw();
 };
 
