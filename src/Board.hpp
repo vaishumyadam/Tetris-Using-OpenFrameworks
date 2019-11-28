@@ -19,7 +19,6 @@ public:
     static const int kBoardWidth;
     
     Board() {};
-    ~Board() {};
     static void init(int row_size, int col_size);
     static void draw();
     

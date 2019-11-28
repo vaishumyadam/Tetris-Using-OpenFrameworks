@@ -15,7 +15,8 @@ class ofApp : public ofBaseApp{
         ofSoundPlayer slide;
         ofSoundPlayer rotate;
     
-        // remember that it's p to pause
+        // remember that it's p to pause!
+    
         bool is_game_finished;
         bool is_game_paused;
     
