@@ -7,7 +7,7 @@
 
 #include "Board.hpp"
 
-vector<vector<Block>> Board::current_board_;
+vector<vector<Block>> Board::blocks;
 const int Board::kBoardHeight = 500;
 const int Board::kBoardWidth = 500;
 
@@ -18,19 +18,18 @@ void Board::init(int row_size, int column_size) {
     while(col_index < column_size) {
         vector<Block> horizontal_blocks;
         while(row_index < row_size) {
-            Block to_push_back = Block(ofPoint(col_index * Block::kBlockWidth, row_index * Block::kBlockHeight), ofColor::pink);
-            horizontal_blocks.push_back(to_push_back);
+        horizontal_blocks.push_back(Block(ofPoint(col_index * Block::kBlockWidth, row_index * Block::kBlockHeight), ofColor::pink));
             row_index++;
         }
-        current_board_.push_back(horizontal_blocks);
+        blocks.push_back(horizontal_blocks);
         col_index++;
     }
 }
 
 void Board::draw() {
-    for(int col_index = 0; col_index < current_board_.size(); col_index++) {
-        for(int row_index = 0; row_index < current_board_[col_index].size(); row_index++) {
-            current_board_[col_index][row_index].draw();
+    for(int col_index = 0; col_index < blocks.size(); col_index++) {
+        for(int row_index = 0; row_index < blocks[col_index].size(); row_index++) {
+            blocks[col_index][row_index].draw();
         }
     }
 }
@@ -38,7 +37,7 @@ void Board::draw() {
 bool Board::IsLineFilled(int length_index, int width_size) {
     bool has_tetromino = true;
     for(int width_index = 0; width_index < width_size; width_index++) {
-        if(current_board_[width_index][length_index].GetShade() == ofColor::pink) {
+        if(blocks[width_index][length_index].GetShade() == ofColor::pink) {
             has_tetromino = false;
         }
     }
@@ -49,9 +48,9 @@ void Board::AllBlocksMoveDown(int length_index, int width_size) {
     for(int current_length_index = length_index; current_length_index > -1; current_length_index--) {
         for(int width_index = 0; width_index < width_size; width_index++) {
             if(current_length_index < 1) {
-                current_board_[width_index][0].SetShade(ofColor::pink);
+                blocks[width_index][0].SetShade(ofColor::pink);
             } else {
-                current_board_[width_index][current_length_index].SetShade(current_board_[width_index][current_length_index - 1].GetShade());
+                blocks[width_index][current_length_index].SetShade(blocks[width_index][current_length_index - 1].GetShade());
             }
         }
     }

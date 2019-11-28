@@ -17,10 +17,7 @@ private:
     int y;
     ofColor shade;
     ofColor border;
-    
 public:
-    static const int kBlockWidth = 25;
-    static const int kBlockHeight = 25;
     
     int GetX();
     int GetY();
@@ -29,7 +26,10 @@ public:
     ofColor GetShade();
     void SetShade(ofColor set_shade);
     
-    Block(ofPoint point, ofColor shade);
+    static const int kBlockWidth = 25;
+    static const int kBlockHeight = 25;
+    
+    Block(ofPoint point, ofColor shade, ofColor border = ofColor::black);
     void draw();
 };
 

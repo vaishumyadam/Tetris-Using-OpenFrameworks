@@ -17,10 +17,9 @@ using std::vector;
 class Tetromino {
 public:
     int num_slide_down = 0;
-    
-    Tetromino();
     vector<Block> blocks;
-    ~Tetromino();
+
+    Tetromino();
     void draw();
     void reset();
     

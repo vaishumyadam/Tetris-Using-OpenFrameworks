@@ -10,17 +10,16 @@
 #include "ofMain.h"
 #include "Block.hpp"
 #include <stdio.h>
-#include "Tetromino.hpp"
-#include "Pieces.hpp"
 
 class Board {
 public:
-    static vector<vector<Block>> current_board_;
+    static vector<vector<Block>> blocks;
     
     static const int kBoardHeight;
     static const int kBoardWidth;
     
     Board() {};
+    ~Board() {};
     static void init(int row_size, int col_size);
     static void draw();
     

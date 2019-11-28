@@ -20,6 +20,7 @@ void Tetromino::draw() {
 }
 
 void Tetromino::reset() {
+    num_slide_down = 0;
     blocks.clear();
     Pieces::CreateAllPieces();
     vector<ofPoint> piece = Pieces::GetRandomPiece();
@@ -36,5 +37,29 @@ void Tetromino::reset() {
     for(int piece_index = 0; piece_index < piece.size(); piece_index++) {
         blocks.push_back(Block(piece[piece_index], pieces_colors[(int) ofRandom(0, piece.size())]));
     }
-    num_slide_down = 0;
+}
+
+void Tetromino::SlideDown(vector<Block> new_blocks) {
+    blocks = new_blocks;
+    num_slide_down++;
+}
+
+vector<Block> ShiftLeft() {
+    
+}
+
+vector<Block> ShiftRight() {
+    
+}
+
+vector<Block> ShiftDown() {
+    
+}
+
+vector<Block> RotateClockwise() {
+    
+}
+
+vector<Block> RotateCounterClockwise() {
+    
 }

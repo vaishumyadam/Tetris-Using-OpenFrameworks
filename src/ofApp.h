@@ -8,23 +8,29 @@
 
 class ofApp : public ofBaseApp{
     private:
+        static int column_size;
+        static int row_size;
+    
+        // do this
         ofSoundPlayer slide;
         ofSoundPlayer rotate;
+    
+        // remember that it's p to pause
+        bool is_game_finished;
+        bool is_game_paused;
+    
 	public:
         Board board;
+        Tetromino tetromino;
     
 		void setup();
 		void update();
 		void draw();
+        void finish();
+    
 		void keyPressed(int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void mouseEntered(int x, int y);
-		void mouseExited(int x, int y);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
+    
+        bool isTouchingLeft(vector<Block> blocks);
+        bool isTouchingRight(vector<Block> blocks);
+        bool isTouchingBottom(vector<Block> blocks);
 };
