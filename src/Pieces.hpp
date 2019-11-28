@@ -9,6 +9,7 @@
 #define Pieces_hpp
 #include <stdio.h>
 #include "ofMain.h"
+#include "Block.hpp"
 
 class Pieces {
 private:
