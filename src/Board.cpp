@@ -7,13 +7,9 @@
 
 #include "Board.hpp"
 
-void Board::draw() {
-    for(int col_index = 0; col_index < current_board_.size(); col_index++) {
-        for(int row_index = 0; row_index < current_board_[col_index].size(); row_index++) {
-            current_board_[col_index][row_index].draw();
-        }
-    }
-}
+vector<vector<Block>> Board::current_board_;
+const int Board::kBoardHeight = 500;
+const int Board::kBoardWidth = 500;
 
 void Board::init(int row_size, int column_size) {
     int row_index = 0;
@@ -31,7 +27,13 @@ void Board::init(int row_size, int column_size) {
     }
 }
 
-// Change pink to grid color
+void Board::draw() {
+    for(int col_index = 0; col_index < current_board_.size(); col_index++) {
+        for(int row_index = 0; row_index < current_board_[col_index].size(); row_index++) {
+            current_board_[col_index][row_index].draw();
+        }
+    }
+}
 
 bool Board::IsLineFilled(int length_index, int width_size) {
     bool has_tetromino = true;

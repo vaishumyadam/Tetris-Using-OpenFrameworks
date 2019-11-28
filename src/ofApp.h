@@ -11,10 +11,11 @@ class ofApp : public ofBaseApp{
         ofSoundPlayer slide;
         ofSoundPlayer rotate;
 	public:
+        Board board;
+    
 		void setup();
 		void update();
 		void draw();
-
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );

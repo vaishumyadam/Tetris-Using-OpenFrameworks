@@ -7,14 +7,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofSetFrameRate(50);
-    ofSetBackgroundColor(ofColor::purple);
     
-    slide.load("slide.wav");
-    slide.play();
+    ofSetBackgroundColor(ofColor::black);
     
-    rotate.load("rotate.wav");
-    rotate.play();
+    Board::init(25, 25);
 }
 
 //--------------------------------------------------------------
@@ -24,7 +20,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    Board::draw();
 }
 
 //--------------------------------------------------------------

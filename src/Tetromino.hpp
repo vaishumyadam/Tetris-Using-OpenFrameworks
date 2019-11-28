@@ -16,9 +16,15 @@ using std::vector;
 
 class Tetromino {
 public:
-    vector<Block> current_tetromino_; //name
+    int num_slide_down = 0;
     
+    Tetromino();
+    vector<Block> blocks;
+    ~Tetromino();
     void draw();
+    void reset();
+    
+    void Change(vector<Block> changed_blocks);
     void SlideDown(vector<Block> tetromino);
     
     vector<Block> ShiftLeft();

@@ -16,7 +16,10 @@
 class Board {
 public:
     static vector<vector<Block>> current_board_;
-
+    
+    static const int kBoardHeight;
+    static const int kBoardWidth;
+    
     Board() {};
     static void init(int row_size, int col_size);
     static void draw();

@@ -15,7 +15,7 @@ class Pieces {
 private:
     static vector<vector<ofPoint>> all_pieces;
 public:
-    void CreateAllPieces();
+    static void CreateAllPieces();
     static vector<ofPoint> GetRandomPiece();
 };
 

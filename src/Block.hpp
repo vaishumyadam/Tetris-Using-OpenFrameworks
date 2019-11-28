@@ -16,6 +16,7 @@ private:
     int x;
     int y;
     ofColor shade;
+    ofColor border;
     
 public:
     static const int kBlockWidth = 25;
