@@ -17,4 +17,8 @@
 - Researched and downloaded what sounds I will be using for the external library part of the project: falling tetromino (fall.wav), losing end screen (gameover.wav), clearing a line at the bottom (line.wav), winning end screen (success.wav), moving the tetromino left or right (slide.wav), rotating the tetromino (rotate.wav)
 
 11/21/19:
-- 
+- Made progress in tetromino class by starting the reset method
+- Started working on ofApp, especially the key pressed method
+- Finished creating the standard tetromino pieces
+- Ran into source control issues because commits and pushes wouldn't go through
+- Finally have a visual on the game board and the tetromino because they showed up on the GUI
