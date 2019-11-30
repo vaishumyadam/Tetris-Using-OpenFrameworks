@@ -32,6 +32,10 @@ public:
     
     vector<Block> RotateClockwise();
     vector<Block> RotateCounterClockwise();
+    
+    bool isTouchingLeft(vector<Block> blocks);
+    bool isTouchingRight(vector<Block> blocks);
+    bool isTouchingBottom(vector<Block> blocks);
 };
 
 #endif /* Tetromino_hpp */

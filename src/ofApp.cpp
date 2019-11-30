@@ -21,12 +21,12 @@ void ofApp::setup() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-    Board::draw();
+    board.draw();
     tetromino.draw();
 }
 
@@ -47,30 +47,26 @@ void ofApp::keyPressed(int key) {
         case 'r':
             changed_tetromino = tetromino.RotateCounterClockwise();
             break;
-        case OF_KEY_DOWN:
-            changed_tetromino = tetromino.ShiftDown();
-            break;
-        case OF_KEY_LEFT:
+       case OF_KEY_LEFT:
             changed_tetromino = tetromino.ShiftLeft();
             break;
         case OF_KEY_RIGHT:
             changed_tetromino = tetromino.ShiftRight();
             break;
+        case OF_KEY_DOWN:
+            changed_tetromino = tetromino.ShiftDown();
+            break;
         default:
             break;
     }
+    
     // Check touching borders at end. No finally???
-    
-}
-
-bool isTouchingLeft(vector<Block> blocks) {
-    
-}
-
-bool isTouchingRight(vector<Block> blocks) {
-    
-}
-
-bool isTouchingBottom(vector<Block> blocks) {
-    
+    if(tetromino.isTouchingBottom(changed_tetromino)) {
+        // tetromino = changed_tetromino;
+    }
+    else if(!(tetromino.isTouchingLeft(changed_tetromino) || tetromino.isTouchingRight(changed_tetromino))) {
+    }
+    else {
+       // tetromino = changed_tetromino;
+    }
 }

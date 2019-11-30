@@ -5,6 +5,8 @@
 //  Created by Vaishnavi Myadam on 11/17/19.
 //
 
+// Work on this one
+
 #include "Tetromino.hpp"
 
 vector<vector<ofPoint>> Pieces::all_pieces;
@@ -44,22 +46,22 @@ void Tetromino::SlideDown(vector<Block> new_blocks) {
     num_slide_down++;
 }
 
-vector<Block> ShiftLeft() {
+vector<Block> Tetromino::ShiftLeft() {
     
 }
 
-vector<Block> ShiftRight() {
+vector<Block> Tetromino::ShiftRight() {
     
 }
 
-vector<Block> ShiftDown() {
+vector<Block> Tetromino::ShiftDown() {
     
 }
 
-vector<Block> RotateClockwise() {
+vector<Block> Tetromino::RotateClockwise() {
     
 }
 
-vector<Block> RotateCounterClockwise() {
+vector<Block> Tetromino::RotateCounterClockwise() {
     
 }

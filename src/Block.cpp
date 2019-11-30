@@ -47,7 +47,7 @@ void Block::draw() {
         ofRect(x, y, kBlockWidth, kBlockHeight);
         ofFill();
         ofSetColor(shade);
-        ofRect(x + 1, y + 1, kBlockWidth - 2, kBlockHeight - 2);
+        ofRect(x + 1, y + 1, kBlockWidth - 1, kBlockHeight - 1);
     };
     ofPopStyle();
 }

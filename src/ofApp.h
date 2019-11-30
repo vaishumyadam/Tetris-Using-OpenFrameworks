@@ -30,8 +30,4 @@ class ofApp : public ofBaseApp{
         void finish();
     
 		void keyPressed(int key);
-    
-        bool isTouchingLeft(vector<Block> blocks);
-        bool isTouchingRight(vector<Block> blocks);
-        bool isTouchingBottom(vector<Block> blocks);
 };
