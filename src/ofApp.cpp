@@ -5,14 +5,14 @@
 #include "Board.hpp"
 
 int ofApp::column_size = 25;
-int ofApp::row_size = 25;
+int ofApp::row_size = 21;
 
 //--------------------------------------------------------------
 void ofApp::setup() {
     // background is yellow
     // board is pink
     // pieces colors are shades of white
-    
+    control_panel.setup("TETRIS");
     ofSetBackgroundColor(ofColor::yellow);
     Board::init(column_size, row_size);
 }
@@ -50,15 +50,25 @@ void ofApp::update() {
     
 }
 
+void ofApp::mousePressed(int x, int y, int button) {
+    is_game_started = true;
+}
+
 //--------------------------------------------------------------
 void ofApp::draw() {
-    Board::draw();
-    tetromino.draw();
+    if(!is_game_started) {
+        string open_message = "CLICK ANYWHERE TO PLAY \"TETRIS: A WORTHY GAME\"";
+        control_panel.draw();
+        ofDrawBitmapString(open_message, ofGetWindowWidth() * 0.3, ofGetWindowHeight() * 0.5);
+    } else {
+        Board::draw();
+        tetromino.draw();
     
-    string message = "A Worthy Tetris Game:\np = pause\nw = clockwise\nr = counterclockwise";
-    ofSetColor(0, 0, 0);
+        string game_message = "TETRIS: A WORTHY GAME:\np = pause\nw = clockwise\nr = counterclockwise";
+        ofSetColor(0, 0, 0);
     
-    ofDrawBitmapString(message, ofGetWindowWidth() * 0.65, ofGetWindowHeight() * 0.25); // TODO: how to do nums for this
+        ofDrawBitmapString(game_message, ofGetWindowWidth() * 0.65, ofGetWindowHeight() * 0.25); // TODO: how to do nums for this
+    }
 }
 
 bool ofApp::TouchesLeftRightBorders(vector<Block> changed_tetromino) {

@@ -5,9 +5,12 @@
 #include "Block.hpp"
 #include "Board.hpp"
 #include "ofMain.h"
+#include "ofxControlPanel.h"
 
 class ofApp : public ofBaseApp{
     private:
+        ofxControlPanel control_panel;
+    
         static int column_size;
         static int row_size;
         static const int time_given_to_act = 500;
@@ -23,6 +26,7 @@ class ofApp : public ofBaseApp{
     
         bool is_game_finished;
         bool is_game_paused;
+        bool is_game_started;
     
 	public:
         Board board;
@@ -38,4 +42,5 @@ class ofApp : public ofBaseApp{
         static bool TouchesLeftRightBorders(vector<Block> changed_tetromino);
         static bool TouchesBlock(vector<Block> changed_tetromino);
         static bool TouchesBottom(vector<Block> changed_tetromino);
+        void mousePressed(int x, int y, int button);
 };
