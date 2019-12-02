@@ -12,6 +12,7 @@ const int Board::kBoardHeight = 500;
 const int Board::kBoardWidth = 500;
 
 void Board::init(int row_size, int column_size) {
+
     // there was a problem here with only one column or diagonal showing up so now we got 2 for loops instead of a nice while loop
     
     for(int col_index = 0; col_index < column_size; col_index++) {
@@ -42,6 +43,7 @@ bool Board::IsLineFilled(int length_index, int width_size) {
 }
 
 void Board::AllBlocksMoveDown(int length_index, int width_size) {
+    
     for(int current_length_index = length_index; current_length_index > -1; current_length_index--) {
         for(int width_index = 0; width_index < width_size; width_index++) {
             if(current_length_index < 1) {
@@ -58,6 +60,7 @@ void Board::DeleteLine(int row_size, int column_size) {
     // Iterating backwards because we are deleting lines from the bottom
     for(int row_index = row_size - 1; row_index > -1; row_index--) {
         if(Board::IsLineFilled(row_index, column_size)) {
+            
             Board::AllBlocksMoveDown(row_index, column_size);
             row_index++; // Because we are deleting a line (skips twice)
         }

@@ -9,18 +9,15 @@
 
 class ofApp : public ofBaseApp{
     private:
+        ofSoundPlayer success, gameover, fall;
         ofxControlPanel control_panel;
-    
+
         static int column_size;
         static int row_size;
         static const int time_given_to_act = 500;
     
         // For measuring time: https://developer.android.com/reference/android/os/SystemClock
         long frame_number;
-    
-        // do this
-        ofSoundPlayer slide;
-        ofSoundPlayer rotate;
     
         // remember that it's p to pause!
     

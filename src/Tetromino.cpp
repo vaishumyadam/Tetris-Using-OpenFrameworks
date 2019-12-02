@@ -12,6 +12,8 @@
 vector<vector<ofPoint>> Pieces::all_pieces;
 
 Tetromino::Tetromino() {
+    slide.load("slide.wav");
+    rotate.load("rotate.wav");
     reset();
 }
 
@@ -51,6 +53,7 @@ void Tetromino::SetTetromino(vector<Block> changed_tetromino) {
 }
 
 vector<Block> Tetromino::ShiftLeft() {
+    slide.play();
     vector<Block> changed_tetromino = blocks;
     
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
@@ -61,6 +64,7 @@ vector<Block> Tetromino::ShiftLeft() {
 }
 
 vector<Block> Tetromino::ShiftRight() {
+    slide.play();
     vector<Block> changed_tetromino = blocks;
     
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
@@ -103,6 +107,7 @@ pair<int, int> Tetromino::GetOrigins(vector<Block> changed_tetromino) {
 }
 
 vector<Block> Tetromino::RotateClockwise() {
+    rotate.play();
     vector<Block> changed_tetromino = blocks;
     pair<int, int> origins_pair = GetOrigins(changed_tetromino);
     int x_trans, y_trans, x_rotate, y_rotate;
@@ -124,7 +129,7 @@ vector<Block> Tetromino::RotateClockwise() {
 }
 
 vector<Block> Tetromino::RotateCounterClockwise() {
-    // similar to above
+    rotate.play();
     vector<Block> changed_tetromino = blocks;
     pair<int, int> origins_pair = GetOrigins(changed_tetromino);
     int x_trans, y_trans, x_rotate, y_rotate;

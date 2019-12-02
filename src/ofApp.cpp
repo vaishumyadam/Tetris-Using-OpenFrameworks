@@ -9,6 +9,10 @@ int ofApp::row_size = 21;
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+    success.load("success.wav");
+    gameover.load("gameover.wav");
+    fall.load("fall.wav");
+
     // background is yellow
     // board is pink
     // pieces colors are shades of white
@@ -52,6 +56,7 @@ void ofApp::update() {
 
 void ofApp::mousePressed(int x, int y, int button) {
     is_game_started = true;
+    success.play();
 }
 
 //--------------------------------------------------------------
@@ -122,6 +127,7 @@ void ofApp::keyPressed(int key) {
     vector<Block> changed_tetromino;
     switch(key) {
         case 'p':
+            gameover.play();
             is_game_paused = true;
             break;
             
@@ -141,6 +147,7 @@ void ofApp::keyPressed(int key) {
             changed_tetromino = tetromino.ShiftRight();
             break;
         case OF_KEY_DOWN:
+            fall.play(); // special case
             changed_tetromino = tetromino.ShiftDown();
             break;
         default:

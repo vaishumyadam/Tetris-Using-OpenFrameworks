@@ -16,6 +16,9 @@ using std::vector;
 
 class Tetromino {
 public:
+    ofSoundPlayer slide;
+    ofSoundPlayer rotate;
+    
     int num_slide_down = 0;
     vector<Block> blocks;
 
