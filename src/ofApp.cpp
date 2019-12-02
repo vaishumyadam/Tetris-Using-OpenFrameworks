@@ -19,12 +19,40 @@ void ofApp::setup() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
+    vector<Block> changed_tetromino;
+    if(ofGetElapsedTimeMillis() - frame_number > time_given_to_act && !is_game_paused && !is_game_finished) {
+        changed_tetromino = tetromino.ShiftDown();
+        
+        if(TouchesBottom(changed_tetromino)) {
+            for(int block_index = 0; block_index < tetromino.blocks.size(); block_index++) {
+                // updating board:
 
+                int width_index = tetromino.blocks[block_index].GetX() / Block::kBlockWidth;
+                int height_index = tetromino.blocks[block_index].GetY() / Block::kBlockHeight;
+                
+                Board::blocks[width_index][height_index].SetShade(tetromino.blocks[block_index].GetShade());
+            }
+            Board::DeleteLine(column_size, row_size);
+            
+            if(tetromino.num_slide_down == 0) {
+                is_game_finished = true;
+                Board::init(column_size, row_size);
+            }
+            else {
+                tetromino.reset();
+            }
+        }
+        else {
+            tetromino.SlideDown(changed_tetromino);
+        }
+        frame_number = ofGetElapsedTimeMillis();
+    }
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-    board.draw();
+    Board::draw();
     tetromino.draw();
 }
 
