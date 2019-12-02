@@ -30,4 +30,8 @@ class ofApp : public ofBaseApp{
         void finish();
     
 		void keyPressed(int key);
+    
+        static bool TouchesLeftRightBorders(vector<Block> changed_tetromino);
+        static bool TouchesBlock(vector<Block> changed_tetromino);
+        static bool TouchesBottom(vector<Block> changed_tetromino);
 };

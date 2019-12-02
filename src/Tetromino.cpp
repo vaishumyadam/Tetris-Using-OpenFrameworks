@@ -46,6 +46,10 @@ void Tetromino::SlideDown(vector<Block> new_blocks) {
     num_slide_down++;
 }
 
+void Tetromino::SetTetromino(vector<Block> changed_tetromino) {
+    blocks = changed_tetromino;
+}
+
 vector<Block> Tetromino::ShiftLeft() {
     
 }
