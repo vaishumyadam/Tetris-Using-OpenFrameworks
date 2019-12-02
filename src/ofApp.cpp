@@ -54,6 +54,11 @@ void ofApp::update() {
 void ofApp::draw() {
     Board::draw();
     tetromino.draw();
+    
+    string message = "A Worthy Tetris Game:\np = pause\nw = clockwise\nr = counterclockwise";
+    ofSetColor(0, 0, 0);
+    
+    ofDrawBitmapString(message, ofGetWindowWidth() * 0.65, ofGetWindowHeight() * 0.25); // TODO: how to do nums for this
 }
 
 bool ofApp::TouchesLeftRightBorders(vector<Block> changed_tetromino) {

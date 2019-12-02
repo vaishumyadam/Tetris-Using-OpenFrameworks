@@ -12,17 +12,14 @@ const int Board::kBoardHeight = 500;
 const int Board::kBoardWidth = 500;
 
 void Board::init(int row_size, int column_size) {
-    int row_index = 0;
-    int col_index = 0;
-
-    while(col_index < column_size) {
+    // there was a problem here with only one column or diagonal showing up so now we got 2 for loops instead of a nice while loop
+    
+    for(int col_index = 0; col_index < column_size; col_index++) {
         vector<Block> horizontal_blocks;
-        while(row_index < row_size) {
-        horizontal_blocks.push_back(Block(ofPoint(col_index * Block::kBlockWidth, row_index * Block::kBlockHeight), ofColor::pink));
-            row_index++;
+        for(int row_index = 0; row_index < row_size; row_index++) {
+            horizontal_blocks.push_back(Block(ofPoint(col_index * Block::kBlockWidth, row_index * Block::kBlockHeight), ofColor::pink));
         }
         blocks.push_back(horizontal_blocks);
-        col_index++;
     }
 }
 
