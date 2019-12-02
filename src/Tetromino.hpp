@@ -30,6 +30,8 @@ public:
     vector<Block> ShiftRight();
     vector<Block> ShiftDown();
     
+    pair<int, int> GetOrigins(vector<Block> changed_tetromino);
+
     vector<Block> RotateClockwise();
     vector<Block> RotateCounterClockwise();
 };

@@ -82,14 +82,66 @@ vector<Block> Tetromino::ShiftDown() {
     return changed_tetromino;
 }
 
-vector<Block> Tetromino::RotateClockwise() {
-    vector<Block> changed_tetromino;
+// Adapted from this for algorithm for both rotations: https://stackoverflow.com/questions/233850/tetris-piece-rotation-algorithm
+
+// Doing origins separate because it would be redundant in both methods
+pair<int, int> Tetromino::GetOrigins(vector<Block> changed_tetromino) {
+    vector<int> x_blocks_coordinates;
+    vector<int> y_blocks_coordinates;
     
+    for(int block_index = 0; block_index < changed_tetromino.size(); block_index++) {
+        x_blocks_coordinates.push_back(changed_tetromino[block_index].GetX());
+        y_blocks_coordinates.push_back(changed_tetromino[block_index].GetY());
+    }
+    
+    // https://www.geeksforgeeks.org/how-to-find-the-minimum-and-maximum-element-of-a-vector-using-stl-in-c/
+    // Adding height width to get center of rotation
+    int x_origin = *min_element(x_blocks_coordinates.begin(), x_blocks_coordinates.end()) + Block::kBlockWidth;
+    int y_origin = *min_element(y_blocks_coordinates.begin(), y_blocks_coordinates.end()) + Block::kBlockHeight;
+    
+    return make_pair(x_origin, y_origin);
+}
+
+vector<Block> Tetromino::RotateClockwise() {
+    vector<Block> changed_tetromino = blocks;
+    pair<int, int> origins_pair = GetOrigins(changed_tetromino);
+    int x_trans, y_trans, x_rotate, y_rotate;
+    
+    for(int block_index = 0; block_index < blocks.size(); block_index++) {
+        
+        // trans means translating coordinates in relation to origins
+        x_trans = changed_tetromino[block_index].GetX() - origins_pair.first;
+        y_trans = changed_tetromino[block_index].GetY() - origins_pair.second;
+        
+        x_rotate = y_trans;
+        y_rotate = -1 * x_trans;
+        
+        // un-translating
+        changed_tetromino[block_index].SetX(origins_pair.first + x_rotate);
+        changed_tetromino[block_index].SetY(origins_pair.second + y_rotate);
+    }
     return changed_tetromino;
 }
 
 vector<Block> Tetromino::RotateCounterClockwise() {
-    vector<Block> changed_tetromino;
-    
+    // similar to above
+    vector<Block> changed_tetromino = blocks;
+    pair<int, int> origins_pair = GetOrigins(changed_tetromino);
+    int x_trans, y_trans, x_rotate, y_rotate;
+
+    for(int block_index = 0; block_index < blocks.size(); block_index++) {
+        
+        // trans means translating coordinates in relation to origins
+        x_trans = changed_tetromino[block_index].GetX() - origins_pair.first;
+        y_trans = changed_tetromino[block_index].GetY() - origins_pair.second;
+        
+        // these 2 lines are different from CW
+        x_rotate = y_trans * -1;
+        y_rotate = x_trans;
+        
+        // un-translating
+        changed_tetromino[block_index].SetX(origins_pair.first + x_rotate);
+        changed_tetromino[block_index].SetY(origins_pair.second + y_rotate);
+    }
     return changed_tetromino;
 }
