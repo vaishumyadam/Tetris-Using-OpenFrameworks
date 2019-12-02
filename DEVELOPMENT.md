@@ -22,3 +22,26 @@
 - Finished creating the standard tetromino pieces
 - Ran into source control issues because commits and pushes wouldn't go through
 - Finally have a visual on the game board and the tetromino because they showed up on the GUI
+
+11/26/19:
+- Fixed the delete line logic by changing the variables and editing the 2 helper methods
+
+11/27/19:
+- Completed the Pieces class which generates all of the standard tetrominos and then added a method that returns a random tetromino.
+- Created colors for the standard tetromino pieces by referencing RGB values online
+- Worked on the ofApp file, mainly the keypressed method to handle user actions
+
+11/28/19:
+- Worked on fixing source control issues (pushes wouldn't go through)
+
+11/29/19:
+- Started to think about implement logic to check borders and how to handle when a user move touched the edge of the board
+
+12/2/19:
+- Completed the methods that check for the tetromino touching the border/edge
+- Worked on the update method which doesn't work correctly right now but should be calling methods based on the current board
+- Completed the shift left, right, and down methods, which work
+- Completed the rotate clockwise and counter clockwise methods, which shockingly worked
+- Fixed board error by changing while loops to for loops
+- Added ofxControlPanel to add a game start screen and then moving to the game once the user clicks to play
+- Added sounds to certain methods so that there are different sounds based on user moves such as rotating, starting the game, etc.
