@@ -58,6 +58,7 @@ void ofApp::draw() {
 
 bool ofApp::TouchesLeftRightBorders(vector<Block> changed_tetromino) {
     bool is_touching = false;
+    
     for(int block_index = 0; block_index < changed_tetromino.size(); block_index++) {
         if(changed_tetromino[block_index].GetX() < 0 || changed_tetromino[block_index].GetX() == Board::kBoardWidth) {
             is_touching = true;
@@ -69,6 +70,7 @@ bool ofApp::TouchesLeftRightBorders(vector<Block> changed_tetromino) {
    
 bool ofApp::TouchesBottom(vector<Block> changed_tetromino) {
     bool is_touching = false;
+    
     for(int block_index = 0; block_index < changed_tetromino.size(); block_index++) {
         if(changed_tetromino[block_index].GetY() >= Board::kBoardHeight) {
             is_touching = true;
@@ -80,9 +82,11 @@ bool ofApp::TouchesBottom(vector<Block> changed_tetromino) {
 
 bool ofApp::TouchesBlock(vector<Block> changed_tetromino) {
     bool is_touching = false;
+    
     for(int block_index = 0; block_index < changed_tetromino.size(); block_index++) {
         int x = changed_tetromino[block_index].GetX();
         int y = changed_tetromino[block_index].GetY();
+        
         Block block_left = Board::blocks[x / Block::kBlockWidth][y / Block::kBlockHeight];
         Block block_right = Board::blocks[x / Block::kBlockWidth][y * Block::kBlockHeight];
         

@@ -51,21 +51,45 @@ void Tetromino::SetTetromino(vector<Block> changed_tetromino) {
 }
 
 vector<Block> Tetromino::ShiftLeft() {
+    vector<Block> changed_tetromino = blocks;
     
+    for(int block_index = 0; block_index < blocks.size(); block_index++) {
+        int to_set_x = changed_tetromino[block_index].GetX() - Block::kBlockWidth;
+        changed_tetromino[block_index].SetX(to_set_x);
+    }
+    return changed_tetromino;
 }
 
 vector<Block> Tetromino::ShiftRight() {
+    vector<Block> changed_tetromino = blocks;
     
+    for(int block_index = 0; block_index < blocks.size(); block_index++) {
+        // same as above method just + instead of -
+        int to_set_x = changed_tetromino[block_index].GetX() + Block::kBlockWidth;
+        changed_tetromino[block_index].SetX(to_set_x);
+    }
+    return changed_tetromino;
 }
 
 vector<Block> Tetromino::ShiftDown() {
+    vector<Block> changed_tetromino = blocks;
     
+    for(int block_index = 0; block_index < blocks.size(); block_index++) {
+        // same as above method just y instead of x
+        int to_set_y = changed_tetromino[block_index].GetY() + Block::kBlockHeight;
+        changed_tetromino[block_index].SetY(to_set_y);
+    }
+    return changed_tetromino;
 }
 
 vector<Block> Tetromino::RotateClockwise() {
+    vector<Block> changed_tetromino;
     
+    return changed_tetromino;
 }
 
 vector<Block> Tetromino::RotateCounterClockwise() {
+    vector<Block> changed_tetromino;
     
+    return changed_tetromino;
 }
