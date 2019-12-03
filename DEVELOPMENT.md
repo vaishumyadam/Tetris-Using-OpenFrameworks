@@ -45,3 +45,8 @@
 - Fixed board error by changing while loops to for loops
 - Added ofxControlPanel to add a game start screen and then moving to the game once the user clicks to play
 - Added sounds to certain methods so that there are different sounds based on user moves such as rotating, starting the game, etc.
+- Added catch 2 for testing purposes
+- Worked on the read me file by adding instructions and descriptions
+
+12/3/19:
+- Goals: tests, fix game
