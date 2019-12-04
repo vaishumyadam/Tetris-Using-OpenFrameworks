@@ -209,3 +209,78 @@ TEST_CASE("Testing shift down x coordinates") {
         REQUIRE(result[result_index].GetX() == changed[result_index].GetX());
     }
 }
+
+TEST_CASE("Testing rotate clockwise") {
+    Tetromino tetromino_class;
+    
+    Block one(ofPoint(25,100), ofColor::white, ofColor::black);
+    Block two(ofPoint(25,75), ofColor::white, ofColor::black);
+    Block three(ofPoint(25,50), ofColor::white, ofColor::black);
+    Block four(ofPoint(25,25), ofColor::white, ofColor::black);
+    
+    vector<Block> original;
+    original.push_back(one);
+    original.push_back(two);
+    original.push_back(three);
+    original.push_back(four);
+
+    tetromino_class.SetBlocks(original);
+    
+    vector<Block> changed = original;
+    int block_size = 25;
+    int x_multiplier = 3;
+    int rotate_center = 3;
+    
+    for(int changed_index = 0; changed_index < changed.size(); changed_index++) {
+        changed[changed_index].SetX(changed[changed_index].GetX() + x_multiplier * block_size);
+        x_multiplier--;
+        changed[changed_index].SetY(changed[changed.size()/rotate_center].GetY());
+    }
+
+    vector<Block> result = tetromino_class.RotateClockwise();
+    
+    for(int result_index = 0; result_index < result.size(); result_index++) {
+        REQUIRE(result[result_index].GetX() == changed[result_index].GetX());
+        REQUIRE(result[result_index].GetY() == changed[result_index].GetY());
+    }
+}
+
+TEST_CASE("Testing rotate counterclockwise") {
+    Tetromino tetromino_class;
+    
+    Block one(ofPoint(100,100), ofColor::white, ofColor::black);
+    Block two(ofPoint(100,75), ofColor::white, ofColor::black);
+    Block three(ofPoint(100,50), ofColor::white, ofColor::black);
+    Block four(ofPoint(100,25), ofColor::white, ofColor::black);
+    
+    vector<Block> original;
+    original.push_back(one);
+    original.push_back(two);
+    original.push_back(three);
+    original.push_back(four);
+
+    tetromino_class.SetBlocks(original);
+    
+    vector<Block> changed = original;
+    int block_size = 25;
+    int x_multiplier = 1;
+    
+    for(int changed_index = 0; changed_index < changed.size(); changed_index++) {
+        if(changed_index < 1) {
+            changed[changed_index].SetX(changed[changed_index].GetX() - block_size);
+        }
+        
+        if(changed_index > 1) {
+            changed[changed_index].SetX(changed[changed_index].GetX() + x_multiplier * block_size);
+            x_multiplier++;
+        }
+        changed[changed_index].SetY(changed[changed.size() - 1].GetY());
+    }
+    
+    vector<Block> result = tetromino_class.RotateCounterClockwise();
+    
+    for(int result_index = 0; result_index < result.size(); result_index++) {
+        REQUIRE(result[result_index].GetX() == changed[result_index].GetX());
+        REQUIRE(result[result_index].GetY() == changed[result_index].GetY());
+    }
+}
