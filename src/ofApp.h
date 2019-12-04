@@ -18,9 +18,9 @@ class ofApp : public ofBaseApp{
         //int ofApp::row_size = 21;
 
         static const int column_size = 20;
-        static const int row_size = 20;
+        static const int row_size = 12;
     
-        static const int time_given_to_act = 500;
+        static int time_given_to_act;
         static const int target_frame_rate = 50;
         // For measuring time: https://developer.android.com/reference/android/os/SystemClock
         long frame_number;

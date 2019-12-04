@@ -22,6 +22,10 @@ void Tetromino::draw() {
     }
 }
 
+vector<Block> Tetromino::GetTetromino() {
+    return blocks;
+}
+
 void Tetromino::reset() {
     num_slide_down = 0;
     blocks.clear();

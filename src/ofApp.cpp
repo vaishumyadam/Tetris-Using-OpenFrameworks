@@ -4,8 +4,9 @@
 #include "Block.hpp"
 #include "Board.hpp"
 
-void ofApp::setup() {
+int ofApp::time_given_to_act = 500;
 
+void ofApp::setup() {
     success.load("success.wav");
     gameover.load("gameover.wav");
     fall.load("fall.wav");
@@ -22,6 +23,7 @@ void ofApp::setup() {
 }
 
 void ofApp::update() {
+   
     vector<Block> changed_tetromino;
     
     if((ofGetElapsedTimeMillis() - frame_number > time_given_to_act) && !is_game_paused && !is_game_finished) {
@@ -174,6 +176,10 @@ void ofApp::keyPressed(int key) {
             if(!TouchesBottom(changed_tetromino)) {
                 fall.play(); // special case
                 tetromino.SetTetromino(changed_tetromino);
+            }
+            // because I take hitting bottom as a sign of impatience
+            if(time_given_to_act > 50) {
+                   time_given_to_act -= 10;
             }
             break;
         default:
