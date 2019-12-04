@@ -46,7 +46,7 @@ void Board::AllBlocksMoveDown(int length_index, int width_size) {
     
     for(int current_length_index = length_index; current_length_index > -1; current_length_index--) {
         for(int width_index = 0; width_index < width_size; width_index++) {
-            if(current_length_index < 1) {
+            if(current_length_index <= 1) { // this means it's at the end
                 blocks[width_index][0].SetShade(ofColor::pink);
             } else {
                 blocks[width_index][current_length_index].SetShade(blocks[width_index][current_length_index - 1].GetShade());
@@ -55,12 +55,10 @@ void Board::AllBlocksMoveDown(int length_index, int width_size) {
     }
 }
 
-// renamed because I was getting confused
 void Board::DeleteLine(int row_size, int column_size) {
     // Iterating backwards because we are deleting lines from the bottom
-    for(int row_index = row_size - 1; row_index > -1; row_index--) {
+    for(int row_index = row_size - 1; row_index >= 0; row_index--) {
         if(Board::IsLineFilled(row_index, column_size)) {
-            
             Board::AllBlocksMoveDown(row_index, column_size);
             row_index++; // Because we are deleting a line (skips twice)
         }

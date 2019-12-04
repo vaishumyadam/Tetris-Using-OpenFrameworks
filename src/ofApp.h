@@ -9,13 +9,19 @@
 
 class ofApp : public ofBaseApp{
     private:
+        int score = 0;
+        const int points_per_line = 25;
+    
         ofSoundPlayer success, gameover, fall;
         ofxControlPanel control_panel;
+        //int ofApp::column_size = 25;
+        //int ofApp::row_size = 21;
 
-        static int column_size;
-        static int row_size;
-        static const int time_given_to_act = 500;
+        static const int column_size = 20;
+        static const int row_size = 20;
     
+        static const int time_given_to_act = 500;
+        static const int target_frame_rate = 50;
         // For measuring time: https://developer.android.com/reference/android/os/SystemClock
         long frame_number;
     
@@ -36,8 +42,10 @@ class ofApp : public ofBaseApp{
     
 		void keyPressed(int key);
     
-        static bool TouchesLeftRightBorders(vector<Block> changed_tetromino);
-        static bool TouchesBlock(vector<Block> changed_tetromino);
+    static bool TouchesLeftRightBorder(vector<Block> changed_tetromino);
+        static bool TouchesLeftBorder(vector<Block> changed_tetromino);
+        static bool TouchesRightBorder(vector<Block> changed_tetromino);
+        //static bool TouchesBlock(vector<Block> changed_tetromino);
         static bool TouchesBottom(vector<Block> changed_tetromino);
         void mousePressed(int x, int y, int button);
 };

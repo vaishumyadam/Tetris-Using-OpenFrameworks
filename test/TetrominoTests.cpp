@@ -23,11 +23,11 @@ TEST_CASE("Testing set and reset") {
     set.push_back(three);
     set.push_back(four);
 
-    tetromino_class.SetBlocks(set);
+    tetromino_class.SetTetromino(set);
     tetromino_class.reset();
     int one_block_size = 4;
     
-    REQUIRE(tetromino_class.GetBlocks().size() == one_block_size);
+    REQUIRE(tetromino_class.GetTetromino().size() == one_block_size);
 }
 
 TEST_CASE("Testing shift left x coordinates") {
@@ -44,7 +44,7 @@ TEST_CASE("Testing shift left x coordinates") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_width = 25;
@@ -74,7 +74,7 @@ TEST_CASE("Testing shift left y coordinates") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_width = 25;
@@ -104,7 +104,7 @@ TEST_CASE("Testing shift right x coordinates") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_width = 25;
@@ -134,7 +134,7 @@ TEST_CASE("Testing shift right y coordinates") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_width = 25;
@@ -164,7 +164,7 @@ TEST_CASE("Testing shift down y coordinates") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_height = 25;
@@ -194,7 +194,7 @@ TEST_CASE("Testing shift down x coordinates") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_height = 25;
@@ -224,7 +224,7 @@ TEST_CASE("Testing rotate clockwise") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_size = 25;
@@ -259,7 +259,7 @@ TEST_CASE("Testing rotate counterclockwise") {
     original.push_back(three);
     original.push_back(four);
 
-    tetromino_class.SetBlocks(original);
+    tetromino_class.SetTetromino(original);
     
     vector<Block> changed = original;
     int block_size = 25;

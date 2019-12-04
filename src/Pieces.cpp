@@ -65,7 +65,8 @@ void Pieces::CreateAllPieces() {
 }
 
 vector<ofPoint> Pieces::GetRandomPiece() {
-    return all_pieces[(int)ofRandom(0, all_pieces.size() - 1)];
+    // didn't feel random enough so I switched from ofRandom to ofRand
+    return all_pieces[rand() % all_pieces.size()];
 }
 
 vector<vector<ofPoint>> Pieces::GetAllPieces() {

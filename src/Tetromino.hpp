@@ -38,9 +38,7 @@ public:
     vector<Block> RotateClockwise();
     vector<Block> RotateCounterClockwise();
     
-    vector<Block> GetBlocks(); //for testing
-    void SetBlocks(vector<Block> set); //for testing
-
+    vector<Block> GetTetromino(); //for testing
 };
 
 #endif /* Tetromino_hpp */

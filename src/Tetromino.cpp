@@ -16,14 +16,6 @@ Tetromino::Tetromino() {
     reset();
 }
 
-vector<Block> Tetromino::GetBlocks() {
-    return blocks;
-}
-
-void Tetromino::SetBlocks(vector<Block> set) {
-    blocks = set;
-}
-
 void Tetromino::draw() {
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
         blocks[block_index].draw();
@@ -44,15 +36,15 @@ void Tetromino::reset() {
         ofColor(255, 238, 245), // seashell
         ofColor(255, 250, 250) // snow
     };
-    
+    int color_index_for_this_piece = rand() % 7;
     for(int piece_index = 0; piece_index < piece.size(); piece_index++) {
-        blocks.push_back(Block(piece[piece_index], pieces_colors[(int) ofRandom(0, piece.size())]));
+        blocks.push_back(Block(piece[piece_index], pieces_colors[color_index_for_this_piece], ofColor::black));
     }
 }
 
 void Tetromino::SlideDown(vector<Block> new_blocks) {
-    blocks = new_blocks;
     num_slide_down++;
+    blocks = new_blocks;
 }
 
 void Tetromino::SetTetromino(vector<Block> changed_tetromino) {
