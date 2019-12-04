@@ -24,6 +24,8 @@ public:
     void SetX(int set_x);
     void SetY(int set_y);
     ofColor GetShade();
+    ofColor GetBorder(); //for testing
+
     void SetShade(ofColor set_shade);
     
     static const int kBlockWidth = 25;

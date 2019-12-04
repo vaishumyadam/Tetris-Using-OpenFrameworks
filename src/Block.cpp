@@ -28,6 +28,10 @@ ofColor Block::GetShade() {
     return shade;
 }
 
+ofColor Block::GetBorder() {
+    return border;
+}
+
 void Block::SetShade(ofColor set_shade) {
     shade = set_shade;
 }
