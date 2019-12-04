@@ -33,6 +33,7 @@ Playing instructions:
 | Z                           | Face opposite to S             |
 | T                           | For filling small gaps         |
 
+- To start the game, click anywhere on the welcome screen
 - The objective of the game is remove as many of the falling tetrominoes as possible
 - The game is over if the tetrominoes reach the top of the grid
 - Move the tetrominoes according to the actions above to fill horizontal lines
