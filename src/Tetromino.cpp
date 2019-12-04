@@ -16,6 +16,14 @@ Tetromino::Tetromino() {
     reset();
 }
 
+vector<Block> Tetromino::GetBlocks() {
+    return blocks;
+}
+
+void Tetromino::SetBlocks(vector<Block> set) {
+    blocks = set;
+}
+
 void Tetromino::draw() {
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
         blocks[block_index].draw();
