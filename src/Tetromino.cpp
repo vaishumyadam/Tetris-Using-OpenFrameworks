@@ -5,7 +5,6 @@
 //  Created by Vaishnavi Myadam on 11/17/19.
 //
 
-// Work on this one
 
 #include "Tetromino.hpp"
 
