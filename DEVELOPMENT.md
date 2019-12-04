@@ -49,4 +49,8 @@
 - Worked on the read me file by adding instructions and descriptions
 
 12/3/19:
-- Goals: tests, fix game
+- I wrote tests for the tetromino, block, and pieces classes
+- Can't write tests for board because it's based on the visual GUI
+
+12/4/19:
+- Goal: fix game
