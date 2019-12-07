@@ -1,13 +1,13 @@
 ## Tetris: A Worthy Game
 
 Description:
-- This project is an Openframeworks implementation of Tetris
+- This project is an openFrameworks implementation of Tetris
 - The external libraries that were used are [ofSound](https://openframeworks.cc/documentation/sound/ofSoundPlayer/) and [ofxControlPanel](https://github.com/ofTheo/ofxControlPanel/tree/master/src)
 
 Downloading instructions:
 - You must have an IDE such as [XCode](https://developer.apple.com/support/xcode/) or [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- After setting up your IDE, download [openframeworks](https://openframeworks.cc/download/)
-- After downloading openframeworks, open the Openframeworks project generator
+- After setting up your IDE, download [openFrameworks](https://openframeworks.cc/download/)
+- After downloading openFrameworks, open the openFrameworks project generator
 - Download this project as a Zip file and then extract the project folder
 - In the project generator, choose import and select, through the search option, the extracted project folder
 - Once imported, run the project in the IDE
@@ -17,6 +17,8 @@ Playing instructions:
 |  Key   |           Action          |
 |:------:|:-------------------------:|
 | p      | pause                     |
+| u      | unpause                   |
+| s      | stop game                 |
 | r      | counterclockwise rotation |
 | w      | clockwise rotation        |
 | down   | shifts down               |
@@ -39,3 +41,6 @@ Playing instructions:
 - Move the tetrominoes according to the actions above to fill horizontal lines
 - The only way to remove pieces is to fill all a horizontal row so that those blocks disappear
 - The more lines completed at once, the better (max number of lines to be removed is 4 lines with I piece)
+- The game may speed up based on user actions
+- Look at the scorekeeper to track performance
+- Each word of a secret message is revealed as the score increases
