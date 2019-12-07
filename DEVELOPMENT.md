@@ -53,4 +53,11 @@
 - Can't write tests for board because it's based on the visual GUI
 
 12/4/19:
-- Goal: fix game
+- Combined two methods in the ofApp class for clarity
+- Added new features to the game such as the scorekeeper, a secret message that gets revealed as points increase, a pause and unpause option, and a stop game option
+- Added speeding up for the tetromino pieces to fall faster
+- Added audio (bin) files to github
+
+12//19: Goals:
+- Added tests for the Board method
+- Cleaned up code by removing magic numbers, adding whitespace, adding comments, and ensuring there is no redundant code
