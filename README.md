@@ -12,6 +12,10 @@ Downloading instructions:
 - In the project generator, choose import and select, through the search option, the extracted project folder
 - Once imported, run the project in the IDE
 
+![](clickanywhere.png)
+
+![](game.png)
+
 Playing instructions:
 
 |  Key   |           Action          |
