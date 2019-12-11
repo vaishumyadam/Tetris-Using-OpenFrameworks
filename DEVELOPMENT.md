@@ -58,6 +58,7 @@
 - Added speeding up for the tetromino pieces to fall faster
 - Added audio (bin) files to github
 
-12//19: Goals:
+12/10/19:
 - Added tests for the Board method
 - Cleaned up code by removing magic numbers, adding whitespace, adding comments, and ensuring there is no redundant code
+- Added screenshots of the game to the read me
