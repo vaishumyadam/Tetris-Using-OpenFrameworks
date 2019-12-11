@@ -29,8 +29,10 @@ vector<Block> Tetromino::GetTetromino() {
 void Tetromino::reset() {
     num_slide_down = 0;
     blocks.clear();
+    
     Pieces::CreateAllPieces();
     vector<ofPoint> piece = Pieces::GetRandomPiece();
+    
     ofColor pieces_colors[7] = {
         ofColor(254, 250, 254), // baby powder
         ofColor(255, 240, 250), // floral white
@@ -40,6 +42,7 @@ void Tetromino::reset() {
         ofColor(255, 238, 245), // seashell
         ofColor(255, 250, 250) // snow
     };
+    
     int color_index_for_this_piece = rand() % 7;
     for(int piece_index = 0; piece_index < piece.size(); piece_index++) {
         blocks.push_back(Block(piece[piece_index], pieces_colors[color_index_for_this_piece], ofColor::black));
@@ -71,7 +74,6 @@ vector<Block> Tetromino::ShiftRight() {
     vector<Block> changed_tetromino = blocks;
     
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
-        // same as above method just + instead of -
         int to_set_x = changed_tetromino[block_index].GetX() + Block::kBlockWidth;
         changed_tetromino[block_index].SetX(to_set_x);
     }
@@ -82,7 +84,6 @@ vector<Block> Tetromino::ShiftDown() {
     vector<Block> changed_tetromino = blocks;
     
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
-        // same as above method just y instead of x
         int to_set_y = changed_tetromino[block_index].GetY() + Block::kBlockHeight;
         changed_tetromino[block_index].SetY(to_set_y);
     }
@@ -91,7 +92,6 @@ vector<Block> Tetromino::ShiftDown() {
 
 // Adapted from this for algorithm for both rotations: https://stackoverflow.com/questions/233850/tetris-piece-rotation-algorithm
 
-// Doing origins separate because it would be redundant in both methods
 pair<int, int> Tetromino::GetOrigins(vector<Block> changed_tetromino) {
     vector<int> x_blocks_coordinates;
     vector<int> y_blocks_coordinates;
@@ -102,7 +102,7 @@ pair<int, int> Tetromino::GetOrigins(vector<Block> changed_tetromino) {
     }
     
     // https://www.geeksforgeeks.org/how-to-find-the-minimum-and-maximum-element-of-a-vector-using-stl-in-c/
-    // Adding height width to get center of rotation
+    // Adding height and width to get center of rotation
     int x_origin = *min_element(x_blocks_coordinates.begin(), x_blocks_coordinates.end()) + Block::kBlockWidth;
     int y_origin = *min_element(y_blocks_coordinates.begin(), y_blocks_coordinates.end()) + Block::kBlockHeight;
     
@@ -113,8 +113,8 @@ vector<Block> Tetromino::RotateClockwise() {
     rotate.play();
     vector<Block> changed_tetromino = blocks;
     pair<int, int> origins_pair = GetOrigins(changed_tetromino);
-    int x_trans, y_trans, x_rotate, y_rotate;
     
+    int x_trans, y_trans, x_rotate, y_rotate;
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
         
         // trans means translating coordinates in relation to origins
@@ -135,8 +135,8 @@ vector<Block> Tetromino::RotateCounterClockwise() {
     rotate.play();
     vector<Block> changed_tetromino = blocks;
     pair<int, int> origins_pair = GetOrigins(changed_tetromino);
+    
     int x_trans, y_trans, x_rotate, y_rotate;
-
     for(int block_index = 0; block_index < blocks.size(); block_index++) {
         
         // trans means translating coordinates in relation to origins

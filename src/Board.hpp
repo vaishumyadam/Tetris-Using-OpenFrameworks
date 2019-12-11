@@ -18,7 +18,6 @@ public:
     static const int kBoardHeight;
     static const int kBoardWidth;
     
-    Board() {};
     static void init(int row_size, int col_size);
     static void draw();
     

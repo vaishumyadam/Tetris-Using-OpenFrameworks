@@ -12,11 +12,11 @@
 #include "Block.hpp"
 
 class Pieces {
-private:
+ private:
     static vector<vector<ofPoint>> all_pieces;
-public:
-    static vector<vector<ofPoint>> GetAllPieces(); // for testing
+ public:
     static void CreateAllPieces();
+    static vector<vector<ofPoint>> GetAllPieces();
     static vector<ofPoint> GetRandomPiece();
 };
 

@@ -12,24 +12,23 @@
 
 
 class Block {
-private:
+ private:
     int x;
     int y;
     ofColor shade;
     ofColor border;
-public:
+ public:
+    static const int kBlockWidth = 25;
+    static const int kBlockHeight = 25;
     
     int GetX();
     int GetY();
     void SetX(int set_x);
     void SetY(int set_y);
-    ofColor GetShade();
-    ofColor GetBorder(); //for testing
-
-    void SetShade(ofColor set_shade);
     
-    static const int kBlockWidth = 25;
-    static const int kBlockHeight = 25;
+    ofColor GetShade();
+    ofColor GetBorder();
+    void SetShade(ofColor set_shade);
     
     Block(ofPoint point, ofColor shade, ofColor border = ofColor::black);
     void draw();

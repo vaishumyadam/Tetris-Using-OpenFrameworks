@@ -14,11 +14,13 @@ void ofApp::setup() {
     // background is yellow
     // board is pink
     // pieces colors are shades of white
+    
     control_panel.setup("TETRIS");
     frame_number = 0;
-    ofSetFrameRate(target_frame_rate);
     
+    ofSetFrameRate(target_frame_rate);
     ofSetBackgroundColor(ofColor::yellow);
+    
     Board::init(column_size, row_size);
 }
 
@@ -32,7 +34,6 @@ void ofApp::update() {
         if(TouchesBottom(changed_tetromino)) {
             for(int block_index = 0; block_index < tetromino.blocks.size(); block_index++) {
                 // updating board:
-
                 int width_index = tetromino.blocks[block_index].GetX() / Block::kBlockWidth;
                 int height_index = tetromino.blocks[block_index].GetY() / Block::kBlockHeight;
                 
@@ -44,8 +45,7 @@ void ofApp::update() {
             if(tetromino.num_slide_down == 0) {
                 is_game_finished = true;
                 Board::init(column_size, row_size);
-            }
-            else {
+            } else {
                 tetromino.reset();
             }
         }
@@ -54,7 +54,6 @@ void ofApp::update() {
         }
         frame_number = ofGetElapsedTimeMillis();
     }
-    
 }
 
 void ofApp::mousePressed(int x, int y, int button) {
@@ -62,7 +61,6 @@ void ofApp::mousePressed(int x, int y, int button) {
     success.play();
 }
 
-//--------------------------------------------------------------
 void ofApp::draw() {
     if(!is_game_started) {
         string open_message = "CLICK ANYWHERE TO PLAY \"TETRIS: A WORTHY GAME\"";
@@ -72,42 +70,56 @@ void ofApp::draw() {
         Board::draw();
         tetromino.draw();
     
-        string game_message = "TETRIS: A WORTHY GAME:\np = pause\nu = unpause\nw = clockwise\nr = counterclockwise\n";
+        string game_message = "TETRIS: A WORTHY GAME:\np = pause\nu = unpause\ns = stop game\nw = clockwise\nr = counterclockwise\n";
         ofSetColor(0, 0, 0);
     
         string score_message = "\n\nCURRENT SCORE: " + std::to_string(score) + "\nSecret Message: ";
         ofSetColor(0, 0, 0);
-        if(score > 500) {
+        
+        int score_needed_for_first_word = 500;
+        int score_needed_for_second_word = score_needed_for_first_word * 2;
+        int score_needed_for_third_word = score_needed_for_first_word * 3;
+
+        if(score > score_needed_for_first_word) {
             score_message += "You ";
         }
-        if(score > 1000) {
+        if(score > score_needed_for_second_word) {
             score_message += "are ";
         }
-        if(score > 1500) {
+        if(score > score_needed_for_third_word) {
             score_message += "worthy";
         }
-        ofDrawBitmapString(game_message + score_message, ofGetWindowWidth() * 0.65, ofGetWindowHeight() * 0.25); // TODO: how to do nums for this
+        int message_window_width = ofGetWindowWidth() * 0.65;
+        int message_window_height = ofGetWindowHeight() * 0.25;
+        ofDrawBitmapString(game_message + score_message, message_window_width, message_window_height);
     }
     if(is_game_finished) {
         string end_message = "GAME OVER";
+        int end_window_width = ofGetWindowWidth() * 0.65;
+        int end_window_length = ofGetWindowHeight() * 0.5;
+        
         ofSetColor(0, 0, 0);
-        ofDrawBitmapString(end_message, ofGetWindowWidth() * .65, ofGetWindowHeight() * .5);
+        ofDrawBitmapString(end_message, end_window_width, end_window_length);
     }
 }
 
 bool ofApp::TouchesLeftRightBorder(vector<Block> changed_tetromino) {
-   bool is_touching = false;
+    bool is_touching = false;
 
     for(int block_index = 0; block_index < changed_tetromino.size(); block_index++) {
         if(changed_tetromino[block_index].GetX() == Board::kBoardWidth || changed_tetromino[block_index].GetX() < 0) {
             is_touching = true;
             break;
         } else {
-            Block current_block = Board::blocks[changed_tetromino[block_index].GetX()/Block::kBlockWidth][changed_tetromino[block_index].GetY()/Block::kBlockHeight];
+            int current_x = changed_tetromino[block_index].GetX()/Block::kBlockWidth;
+            int current_y = changed_tetromino[block_index].GetY()/Block::kBlockHeight;
+
+            Block current_block = Board::blocks[current_x][current_y];
             if(current_block.GetShade() != ofColor::pink && changed_tetromino[block_index].GetX() == current_block.GetX() && changed_tetromino[block_index].GetY() == current_block.GetY()) {
                 is_touching = true;
                 break;
-            }}
+            }
+        }
     }
     return is_touching;
 }
@@ -120,7 +132,10 @@ bool ofApp::TouchesBottom(vector<Block> changed_tetromino) {
             is_touching = true;
             break;
         } else {
-            Block current_block = Board::blocks[changed_tetromino[block_index].GetX()/Block::kBlockWidth][changed_tetromino[block_index].GetY()/Block::kBlockHeight];
+            int current_x = changed_tetromino[block_index].GetX()/Block::kBlockWidth;
+            int current_y = changed_tetromino[block_index].GetY()/Block::kBlockHeight;
+            
+            Block current_block = Board::blocks[current_x][current_y];
             if(current_block.GetShade() != ofColor::pink && changed_tetromino[block_index].GetX() == current_block.GetX() && changed_tetromino[block_index].GetY() == current_block.GetY()) {
                 is_touching = true;
                 break;
@@ -132,6 +147,9 @@ bool ofApp::TouchesBottom(vector<Block> changed_tetromino) {
 
 void ofApp::keyPressed(int key) {
     vector<Block> changed_tetromino;
+    int minimum_time_given_to_act = 50;
+    int time_decrease_per_key_down = 10;
+    
     switch(key) {
         case 'p':
             gameover.play();
@@ -140,23 +158,19 @@ void ofApp::keyPressed(int key) {
         case 'u':
             is_game_paused = false;
             break;
-            
-        // clockwise = w
-        // counterclockwise = r
-            
         case 'w':
             changed_tetromino = tetromino.RotateClockwise();
-            if(!TouchesLeftRightBorder(changed_tetromino)) {
+            if(!TouchesLeftRightBorder(changed_tetromino) && !TouchesBottom(changed_tetromino)) {
                 tetromino.SetTetromino(changed_tetromino);
             }
             break;
         case 'r':
             changed_tetromino = tetromino.RotateCounterClockwise();
-            if(!TouchesLeftRightBorder(changed_tetromino)) {
+            if(!TouchesLeftRightBorder(changed_tetromino) && !TouchesBottom(changed_tetromino)) {
                 tetromino.SetTetromino(changed_tetromino);
             }
             break;
-        case 's': // stop game
+        case 's':
            is_game_finished = true;
             break;
        case OF_KEY_LEFT:
@@ -174,12 +188,12 @@ void ofApp::keyPressed(int key) {
         case OF_KEY_DOWN:
             changed_tetromino = tetromino.ShiftDown();
             if(!TouchesBottom(changed_tetromino)) {
-                fall.play(); // special case
+                fall.play();
                 tetromino.SetTetromino(changed_tetromino);
             }
-            // because I take hitting bottom as a sign of impatience
-            if(time_given_to_act > 50) {
-                   time_given_to_act -= 10;
+            // Hitting down is a sign of impatience, so the game speeds up
+            if(time_given_to_act > minimum_time_given_to_act) {
+                   time_given_to_act -= time_decrease_per_key_down;
             }
             break;
         default:

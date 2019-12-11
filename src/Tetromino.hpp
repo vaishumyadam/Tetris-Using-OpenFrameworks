@@ -15,7 +15,7 @@
 using std::vector;
 
 class Tetromino {
-public:
+ public:
     ofSoundPlayer slide;
     ofSoundPlayer rotate;
     
@@ -23,10 +23,11 @@ public:
     vector<Block> blocks;
 
     Tetromino();
+    vector<Block> GetTetromino();
+    void SetTetromino(vector<Block> changed_blocks);
+
     void draw();
     void reset();
-    
-    void SetTetromino(vector<Block> changed_blocks);
     void SlideDown(vector<Block> tetromino);
     
     vector<Block> ShiftLeft();
@@ -34,11 +35,8 @@ public:
     vector<Block> ShiftDown();
     
     pair<int, int> GetOrigins(vector<Block> changed_tetromino);
-
     vector<Block> RotateClockwise();
     vector<Block> RotateCounterClockwise();
-    
-    vector<Block> GetTetromino(); //for testing
 };
 
 #endif /* Tetromino_hpp */

@@ -6,12 +6,11 @@
 //
 
 #include "Pieces.hpp"
-// https://www.colinfahey.com/tetris/tetris_diagram_pieces_orientations_new.jpg
-// Idea for coordinates of the pieces came from this (Java link): https://dzone.com/articles/creating-tetris-program-part-t
+
+// Image that shows shapes: https://www.colinfahey.com/tetris/tetris_diagram_pieces_orientations_new.jpg
+// Idea for coordinates of the pieces came from this (Java) link: https://dzone.com/articles/creating-tetris-program-part-t
+
 void Pieces::CreateAllPieces() {
-   
-    // why doesn't this have push front
-    
     vector<ofPoint> O;
     vector<ofPoint> I;
     vector<ofPoint> S;
@@ -65,7 +64,6 @@ void Pieces::CreateAllPieces() {
 }
 
 vector<ofPoint> Pieces::GetRandomPiece() {
-    // didn't feel random enough so I switched from ofRandom to ofRand
     return all_pieces[rand() % all_pieces.size()];
 }
 
